@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "module": "CommonJS",
+        "noImplicitAny": true,
+        "outDir": "./dist",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "target": "ES6",
+        "esModuleInterop": true
+    },
+    "include": ["./src/**/*"]
+}
