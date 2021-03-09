@@ -1,14 +1,15 @@
 import React from 'react';
 import { Container } from '@chakra-ui/react';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { Box } from '@chakra-ui/react';
 import { InputTimer } from './InputTimer';
 import { TimersList } from './TimersList';
 import { store } from '../redux/store';
+import { Logo } from './Logo';
 
 export const App: React.FC = () => {
     return (
-        <Provider store={store}> 
+        <Provider store={store}>
             <Container centerContent>
                 <Box
                     width={{
@@ -21,7 +22,7 @@ export const App: React.FC = () => {
                     margin={{
                         sm: 0
                     }}>
-                    Welcome to TRACKER
+                    <Logo />
                     <InputTimer />
                     <TimersList />
                 </Box>

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import { Input, Flex, Icon} from '@chakra-ui/react';
-import {BsPlayFill} from 'react-icons/bs';
+import React, { useState } from 'react';
+import { Input, Flex, Icon } from '@chakra-ui/react';
+import { BsPlayFill } from 'react-icons/bs';
 import { IconButton } from '@chakra-ui/react';
 import { Timer } from '../utils/types';
 import moment from 'moment';
@@ -8,25 +8,23 @@ import { useDispatch } from 'react-redux';
 import { addTimer } from '../redux/timers/actions';
 
 export const InputTimer = () => {
-
-
     const [timerName, setTimerName] = useState<string>('');
     const dispatch = useDispatch();
 
     const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTimerName(() => (event.target.value));
-    }
+        setTimerName(() => event.target.value);
+    };
 
     const addTimerHandler = () => {
         const t: Timer = {
             isRunning: true,
             timePoints: [moment()],
-            name: timerName,
-        }
+            name: timerName
+        };
 
         dispatch(addTimer(t));
-
-    }
+        setTimerName('');
+    };
 
     return (
         <Flex height="40px" position="relative">
@@ -51,4 +49,4 @@ export const InputTimer = () => {
             />
         </Flex>
     );
-}
+};
