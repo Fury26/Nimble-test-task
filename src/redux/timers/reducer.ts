@@ -1,6 +1,6 @@
 import { ActionType, Timer } from '../../utils/types';
 import { setTimersToStrage } from './actions';
-import { ADD_TIMER, PAUSE_TIMER, RESUME_TIMER, SET_TIMERS } from './types';
+import { ADD_TIMER, DELETE_TIMER, PAUSE_TIMER, RESUME_TIMER, SET_TIMERS } from './types';
 
 export type TimersState = {
     timers: Timer[];
@@ -42,7 +42,11 @@ export const timersReducer = (state: TimersState = initialState, action: ActionT
                 timers: arr
             };
         }
-
+        case DELETE_TIMER: {
+            const arr = state.timers.filter((t) => t.id !== action.payload);
+            setTimersToStrage(arr);
+            return { timers: arr };
+        }
         case PAUSE_TIMER: {
             const arr = state.timers.map((t) => {
                 if (t.id === action.payload.index) {

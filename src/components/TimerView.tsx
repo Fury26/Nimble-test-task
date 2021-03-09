@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import moment from 'moment';
 
 import { Timer } from '../utils/types';
-import { pauseTimer, resumeTimer } from '../redux/timers/actions';
+import { deleteTimer, pauseTimer, resumeTimer } from '../redux/timers/actions';
 
 type Props = {
     timer: Timer;
@@ -59,7 +59,9 @@ export const TimerView: React.FC<Props> = ({ timer }) => {
         }
     };
 
-    const deleteTimerHandler = () => {};
+    const deleteTimerHandler = () => {
+        dispatch(deleteTimer(timer.id));
+    };
 
     const changeTime = () => {
         const displayTime = timeInSeconds + timeBeforeLoading;
