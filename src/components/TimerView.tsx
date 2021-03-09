@@ -89,7 +89,7 @@ export const TimerView: React.FC<Props> = ({ timer }) => {
             my="10px"
             w="100%"
             fontWeight="bold"
-            bg="gray.100">
+            bg={timer.isRunning ? 'gray.100' : '#fff'}>
             <Text ml="10px" flex="2">
                 {timer.name}
             </Text>

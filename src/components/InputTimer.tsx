@@ -29,7 +29,7 @@ export const InputTimer = () => {
     return (
         <Flex height="40px" position="relative">
             <Input
-                placeholder="Enter time name"
+                placeholder="Enter tracker name"
                 h="100%"
                 value={timerName}
                 onChange={inputHandler}
