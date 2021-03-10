@@ -21,6 +21,9 @@ export const InputTimer = () => {
             timePoints: [moment()],
             name: timerName
         };
+        if (!timerName.length) {
+            t.name = moment().format('YYYY-DD-MM');
+        }
 
         dispatch(addTimer(t));
         setTimerName('');
